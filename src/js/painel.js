@@ -4,48 +4,47 @@ const setaAvancar = document.getElementById("seta-avancar");
 
 let imagemAtual = 0;
 
-setaAvancar.addEventListener("click" ,function(){
-    if (imagemAtual === imagens.length -1){
-        return;
-    }
+setaAvancar.addEventListener("click", function () {
+  if (imagemAtual === imagens.length - 1) {
+    return;
+  }
 
-    imagemAtual++;
+  imagemAtual++;
 
-    esconderImagemAberta();
-    imagens[imagemAtual].classList.add("mostrar");
-    mostrarOuEsconderSetas();
+  esconderImagemAberta();
+  imagens[imagemAtual].classList.add("mostrar");
+  mostrarOuEsconderSetas();
 });
 
+setaVoltar.addEventListener("click", function () {
+  if (imagemAtual === 0) {
+    return;
+  }
 
-setaVoltar.addEventListener("click" ,function(){
-    if(imagemAtual === 0) {
-        return;
-    }
-    
-    imagemAtual--;
+  imagemAtual--;
 
-    esconderImagemAberta();
-    imagens[imagemAtual].classList.add("mostrar");
-    mostrarOuEsconderSetas();
-    
+  esconderImagemAberta();
+  imagens[imagemAtual].classList.add("mostrar");
+  mostrarOuEsconderSetas();
 });
 
 function esconderImagemAberta() {
-    const imagemAberta =document.querySelector(".mostrar");
-    imagemAberta.classList.remove("mostrar");
+  const imagemAberta = document.querySelector(".mostrar");
+  imagemAberta.classList.remove("mostrar");
 }
-function mostrarOuEsconderSetas (){
-    const naoEhAprimeiraImagem = imagemAtual !== 0;
-    if (naoEhAprimeiraImagem){
-        setaVoltar.classList.remove("opacidade");
-    } else{
-        setaVoltar.classList.add("opacidade");
-    }
+function mostrarOuEsconderSetas() {
+  const naoEhAprimeiraImagem = imagemAtual !== 0;
+  if (naoEhAprimeiraImagem) {
+    setaVoltar.classList.remove("opacidade");
+  } else {
+    setaVoltar.classList.add("opacidade");
+  }
 
-    const chegouNaUltimaImagem = imagemAtual !== 0 && imagemAtual === imagens.length -1;
-    if (chegouNaUltimaImagem){
-        setaAvancar.classList.add("opacidade");
-    } else{
-        setaAvancar.classList.remove("opacidade")
-    }
+  const chegouNaUltimaImagem =
+    imagemAtual !== 0 && imagemAtual === imagens.length - 1;
+  if (chegouNaUltimaImagem) {
+    setaAvancar.classList.add("opacidade");
+  } else {
+    setaAvancar.classList.remove("opacidade");
+  }
 }
